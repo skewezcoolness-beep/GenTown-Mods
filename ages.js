@@ -1,6 +1,16 @@
 // Ages Mod — Interactive Yes/No Choice Questions with Unlocks
+// By skewez
 
 (function() {
+
+    // Startup notification
+    Mod.event("agesModLoaded", {
+        daily: true,
+        once: true, // Runs only once
+        func: (subject, target) => {
+            happen("Chronicle", null, null, { text: "Ages Mod by skewez has been loaded successfully!" });
+        }
+    });
 
     const AGE_ORDER = [
         "Stone Age",
@@ -47,9 +57,8 @@
         }
     }
 
-    // Choice questions per age
+    // Age-specific Yes/No questions
     const AGE_QUESTIONS = {
-
         "Stone Age": [
             {
                 message: town => `${town.name} is experimenting with simple tools, do you promote this?`,
